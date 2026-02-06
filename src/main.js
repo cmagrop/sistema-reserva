@@ -2,6 +2,8 @@ import './styles/main.scss';
 import { FormularioReserva } from './FormularioReserva';
 import { ListaReservas } from './ListaReservas';
 
+let baseDatos= []; //guardar las reservas
+
 document.querySelector('#app').innerHTML=`
 <div class="container py-5">
     <div class="row justify-content-center">
@@ -24,4 +26,22 @@ document.querySelector('#app').innerHTML=`
 
 
 
-`
+`;
+//crearemos una nueva Lista de Reserva
+const lista =  new ListaReservas('lista-container',
+    {
+        citas: baseDatos, //se le asigna a citas un arreglo vacio
+        onEliminar:
+        (index) => {
+            if(confirm("¿Quieres realmente eliminar la cita"))
+            {
+                baseDatos.splice(index,1);
+                lista.establecerEstado({citas:baseDatos});
+
+            }
+        }
+
+
+
+    }
+);

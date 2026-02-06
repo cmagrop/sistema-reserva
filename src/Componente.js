@@ -9,7 +9,7 @@ export class Componente {
    //actualizar y refrescar la vista automáticamente
    establecerEstado(nuevoEstado){
     this.estado = {...this.estado,...nuevoEstado};
-    this.render()
+    this.render();
 
    }
 
