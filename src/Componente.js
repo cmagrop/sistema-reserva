@@ -7,9 +7,14 @@ export class Componente {
     
    }
    //actualizar y refrescar la vista automáticamente
+   /* ...this.estado : toma todo lo que existe en el estado
+   actual y lo esparce en un nuevo objeto
+   
+   ...nuevoEstado: toma los datos que se quieren cambiar
+   y los añade al final*/
    establecerEstado(nuevoEstado){
     this.estado = {...this.estado,...nuevoEstado};
-    this.render();
+    this.render(); //actualizacion  reactiva
 
    }
 

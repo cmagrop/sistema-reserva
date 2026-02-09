@@ -35,7 +35,7 @@ const lista =  new ListaReservas('lista-container',
         (index) => {
             if(confirm("¿Quieres realmente eliminar la cita"))
             {
-                baseDatos.splice(index,1);
+                baseDatos.splice(index,1); //eliminar cita
                 lista.establecerEstado({citas:baseDatos});
 
             }
@@ -45,3 +45,8 @@ const lista =  new ListaReservas('lista-container',
 
     }
 );
+
+
+
+//renderización
+lista.render();
