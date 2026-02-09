@@ -46,7 +46,68 @@ const lista =  new ListaReservas('lista-container',
     }
 );
 
+//crearemos un nuevo formulario
+const formulario = new FormularioReserva('form-container',
+
+    {
+        onAgregar: (nuevaCita) =>{
+            //push para agregar una nueva cita
+            baseDatos.push(nuevaCita);
+            /*sort: ordenar las citas*
+            
+            se toma a y b porque necesitamos comparar dos elementos
+            dentro del sort que correspoden a dos citas distintas
+            donde cada cita será comparada en su fecha y hora*/
+
+            baseDatos.sort(
+                (a,b)=>{
+                    /*`${a.fecha}T${a.hora}` 
+                    yyyy-mm-ddTHH:mm
+                    2026-02-09T11:59
+
+                    */
+                    const fechaA = new Date(`${a.fecha}T${a.hora}`);
+                    const fechaB = new Date(`${b.fecha}T${b.hora}`);
+                    
+                    /*a=5 y b=3
+                    //a-b=5-3 = 2 positivo
+                     a>b
+                     si b=5 y a=3
+                     a-b =3-5 = -2 negativa
+                     a<b
+
+                     a=5 y b=5
+                     a-b=5-5=0
+                     a=b
+                     Si
+                     fechaA-fechaB >0
+                     Entonces
+                     fechaA>fechaB
+
+                     Si fechaA-fechaB <0
+                     Entonces
+                     fechaA<fechaB
+
+                     Si fechaA-fechaB=0
+                     Entonces
+                     fechaA=fechaB
+
+                     */
+                    return fechaA-fechaB; 
+
+                }
+            );
+
+            lista.establecerEstado({citas:baseDatos});
+
+        }
+
+
+    }
+);
+
 
 
 //renderización
+formulario.render();
 lista.render();
