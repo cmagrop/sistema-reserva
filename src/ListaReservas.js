@@ -10,7 +10,7 @@ export class ListaReservas extends Componente{
         const botones = this.contenedor.querySelectorAll('.btn-eliminar');
         botones.forEach( //recorre cada uno de los botones btn-eliminar
             boton=>{ //toma cada boton existente y lo condiciona
-                boton.click =  // por cada boton que clikee
+                boton.onclick =  // por cada boton que clikee
                 (e)=>{ //disparará un evento que debe modelar su comportamiento
                  //modelar el comportamiento del evento
                  /* 
